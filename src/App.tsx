@@ -1,13 +1,20 @@
+import { useState } from "react";
+import words from './wordList.json';
 
 function App() {
+  const [wordToGuess, setWordToGuess] = useState(()=>
+  {
+    return words[Math.floor(Math.random()*words.length)]
+  });
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-base-200">
-      <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="min-h-screen flex justify-center bg-base-300">
+      <div>{wordToGuess}</div>
+      <div className="card w-96 bg-base-100 shadow-xl mt-20">
         <div className="card-body items-center text-center">
-          <h2 className="card-title text-primary text-2xl">Hello DaisyUI 🌸</h2>
-          <p className="text-lg">React + TypeScript + Tailwind + daisyUI</p>
+          <h2 className="card-title text-primary text-2xl">Hello</h2>
+          <p className="text-lg"></p>
           <div className="card-actions mt-4">
-            <button className="btn btn-primary">Click Me</button>
+            <button className="btn btn-primary" onClick={()=>{window.location.reload()}}>Click Me</button>
           </div>
         </div>
       </div>
