@@ -7,7 +7,7 @@ function App() {
     return words[Math.floor(Math.random() * words.length)];
   });
   return (
-    <div className="min-h-screen flex flex-col bg-black">
+    <div className="min-h-screen flex flex-col bg-[#150303]">
       <Navbar />
       <div className="flex justify-around mt-10">
         <div className="border">
