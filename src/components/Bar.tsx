@@ -18,8 +18,8 @@ const Bar = () => {
         ></motion.div>
       </div>
 
-      <div className="bg-gradient-to-r from-base-300 via-base-300 to-blue-950 h-12 opacity-40 flex justify-center items-center md:text-[70%] px-8 md:px-4 rounded-2xl w-[60%]">
-        <div className="md:w-[85%] lg:w-[65%] text-center">
+      <div className="bg-gradient-to-r from-base-300 to-blue-950 h-12 opacity-40 flex justify-center items-center md:text-[70%] px-8 md:px-4 rounded-2xl w-[60%]">
+        <div className="md:w-[85%] lg:w-[65%] text-center text-white">
           Yemmy HMGame by Yemmy Foundation is a fun and interactive
           word-guessing game that makes learning, thinking, and entertainment
           simple, engaging, and enjoyable for everyone with creative features.

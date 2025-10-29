@@ -1,4 +1,5 @@
 import React from "react";
+import { BiCookie } from "react-icons/bi";
 import styled from "styled-components";
 
 const Loader: React.FC = () => {
@@ -7,15 +8,14 @@ const Loader: React.FC = () => {
 
   return (
     <StyledWrapper>
-      <div className="cube-loader">
+      <div className="cube-loader relative">
+        {/* <div className="absolute -top-8 -left-7 text-yellow-400 font-extrabold bg-black">
+          YemmyHMGame
+        </div> */}
         <div className="cube-top" />
         <div className="cube-wrapper">
           {cubeSides.map((i) => (
-            <span
-              key={i}
-              className="cube-span"
-              style={{ ["--i" as any]: i }}
-            />
+            <span key={i} className="cube-span" style={{ ["--i" as any]: i }} />
           ))}
         </div>
       </div>
@@ -31,8 +31,8 @@ const StyledWrapper = styled.div`
 
   .cube-loader {
     position: relative;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     transform-style: preserve-3d;
     transform: rotateX(-30deg);
     animation: animate 4s linear infinite;
@@ -82,26 +82,23 @@ const StyledWrapper = styled.div`
 
   .cube-top {
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     background: hsl(330, 3.13%, 25.1%);
     transform: rotateX(90deg) translateZ(37.5px);
     transform-style: preserve-3d;
   }
 
   .cube-top::before {
-    content: '';
+    content: "";
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     background: hsl(176.61, 42.28%, 40.7%);
     transform: translateZ(-90px);
     filter: blur(10px);
-    box-shadow:
-      0 0 10px #323232,
-      0 0 20px hsl(176.61, 42.28%, 40.7%),
-      0 0 30px #323232,
-      0 0 40px hsl(176.61, 42.28%, 40.7%);
+    box-shadow: 0 0 10px #323232, 0 0 20px hsl(176.61, 42.28%, 40.7%),
+      0 0 30px #323232, 0 0 40px hsl(176.61, 42.28%, 40.7%);
   }
 `;
 

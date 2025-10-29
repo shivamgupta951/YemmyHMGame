@@ -2,6 +2,9 @@ import { useState } from "react";
 import words from "./wordList.json";
 import Navbar from "./components/Navbar";
 import Loader from "./components/Loader";
+import image from "./assets/image.png";
+import { motion } from "framer-motion";
+
 function App() {
   const [wordToGuess, setWordToGuess] = useState(() => {
     return words[Math.floor(Math.random() * words.length)];
@@ -9,7 +12,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#150303]">
       <Navbar />
-      <div className="flex justify-around mt-10">
+      <div className="flex justify-around mt-28">
         <div className="border">
           <div>{wordToGuess}</div>
           <div className="card w-96 bg-base-100 shadow-xl mt-20">
@@ -31,8 +34,21 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="border size-60">
-          <Loader />
+        <div className="flex justify-center items-center flex-col space-y-12 relative">
+          <div className="top-0 -right-2 absolute"><Loader /></div>
+          <div className="border flex justify-center items-center p-2 bg-black py-10 rounded-lg">
+            <motion.img
+              animate={{ rotate: [0, 6, -6, 12, -12, 6 , -6 , 3 , -3 , 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 20,
+                ease: "easeInOut",
+              }}
+              src={image}
+              alt="logo"
+              className="w-[60%]"
+            />
+          </div>
         </div>
       </div>
     </div>
