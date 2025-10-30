@@ -14,7 +14,7 @@ const Bar = () => {
             repeatType: "mirror",
             ease: "easeInOut",
           }}
-          className="w-[20%] border border-primary"
+          className="w-[20%] border border-red-800"
         ></motion.div>
       </div>
 

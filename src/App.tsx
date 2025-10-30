@@ -36,9 +36,9 @@ function App() {
         </div>
         <div className="flex justify-center items-center flex-col space-y-12 relative">
           <div className="top-0 -right-2 absolute"><Loader /></div>
-          <div className="border flex justify-center items-center p-2 bg-black py-10 rounded-lg">
+          <div className="border flex flex-col justify-center items-center p-1 bg-black py-10 space-y-8 rounded-lg">
             <motion.img
-              animate={{ rotate: [0, 6, -6, 12, -12, 6 , -6 , 3 , -3 , 0] }}
+              animate={{ rotate: [0, 6, -6, 12, -12, 6 , -6 , 3 , -3 , 5 , -5] }}
               transition={{
                 repeat: Infinity,
                 duration: 20,
@@ -48,6 +48,7 @@ function App() {
               alt="logo"
               className="w-[60%]"
             />
+            <div className="text-red-600 font-bold tracking-tighter outline-dashed p-1 px-2 outline-2">PLAY AT YOUR OWN RISK!</div>
           </div>
         </div>
       </div>
