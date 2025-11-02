@@ -1,5 +1,4 @@
 import React from "react";
-import { BiCookie } from "react-icons/bi";
 import styled from "styled-components";
 
 const Loader: React.FC = () => {
