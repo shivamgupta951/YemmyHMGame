@@ -8,9 +8,6 @@ const Loader: React.FC = () => {
   return (
     <StyledWrapper>
       <div className="cube-loader relative">
-        {/* <div className="absolute -top-8 -left-7 text-yellow-400 font-extrabold bg-black">
-          YemmyHMGame
-        </div> */}
         <div className="cube-top" />
         <div className="cube-wrapper">
           {cubeSides.map((i) => (
