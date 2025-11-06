@@ -8,7 +8,7 @@ function App() {
     <Router>
     <div className="min-h-screen flex flex-col bg-[#150303] pb-20">
       <Navbar />
-      <div className="flex justify-around mt-16">
+      <div className="flex justify-around mt-4">
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/info" element={<Info/>}/>

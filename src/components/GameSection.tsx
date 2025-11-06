@@ -1,7 +1,7 @@
 import { useState } from "react";
 import words from "../wordList.json";
 
-const WordGuess = () => {
+const GameSection = () => {
   const [wordToGuess, setWordToGuess] = useState(() => {
     return words[Math.floor(Math.random() * words.length)];
   });
@@ -32,4 +32,4 @@ const WordGuess = () => {
   );
 };
 
-export default WordGuess;
+export default GameSection;
