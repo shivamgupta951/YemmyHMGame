@@ -59,7 +59,7 @@ const Home = () => {
           repeatDelay: 2,
           duration: 4,
         }}
-        className="text-center mt-32 text-gray-400 text-xl flex flex-col justify-center items-center pb-48 border-b-4 border-dashed border-red-400"
+        className="text-center mt-32 text-gray-400 text-xl flex flex-col justify-center items-center pb-48"
       >
         <h2 className="text-2xl flex justify-center items-center my-7 text-yellow-700 font-bold tracking-wider underline shadow-xl shadow-black w-[80%]">
           <BiCookie className="mx-2 text-primary"></BiCookie> YemmyHMGame{" "}
@@ -80,6 +80,7 @@ const Home = () => {
           © {new Date().getFullYear()} YemmyHMGame. All rights reserved.
         </p>
       </motion.div>
+      <div className="border-b-2 border-dashed border-red-400"></div>
       <div className="min-h-[700px] flex justify-center items-center flex-col"><GameSection/></div>
     </div>
   );
