@@ -5,7 +5,7 @@ import { BiCookie } from "react-icons/bi";
 
 const Info = () => {
   return (
-    <div className="border-b-4 border-dashed border-red-400 flex flex-col items-center justify-center text-white px-6 pb-40 w-full space-y-16 pt-4">
+    <div className="border-b-2 border-dashed border-red-400 flex flex-col items-center justify-center text-white px-6 pb-40 w-full space-y-16 pt-4">
       {/* Title Section */}
       <motion.div
         initial={{ y: -40, opacity: 0 }}
