@@ -1,16 +1,12 @@
 import { useState } from "react";
-import words from "../wordList.json";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaGamepad } from "react-icons/fa";
-import { GiHangingSpider } from "react-icons/gi";
 import { FaKeyboard } from "react-icons/fa6";
 import { GiPanda } from "react-icons/gi";
+import GameBox from "./GameBox";
 
 const GameSection = () => {
-  const [wordToGuess, setWordToGuess] = useState(() => {
-    return words[Math.floor(Math.random() * words.length)];
-  });
   const [boxStatus, setBoxStatus] = useState(() => {
     return Math.floor(Math.random() * 10);
   });
@@ -149,11 +145,7 @@ const GameSection = () => {
       </div>
       <div className="hidden lg:block min-h-[50%] w-[6px] bg-gradient-to-b from-primary via-black to-purple-900 border-dashed mb-[20%] mt-[3%]"></div>
       <div className="pb-20 lg:pb-0 w-[100%] lg:w-[55%] flex bg-gradient-to-tr pt-10 justify-start items-center flex-col from-black via-[#1f0303] to-black space-y-8">
-        <div className="w-[60%] text-2xl h-[280px] size-[45%] lg:w-[50%] lg:h-[40%] border rounded-2xl bg-orange-300 flex justify-center items-center flex-col lg:text-4xl text-red-950 font-extrabold shadow-xl shadow-red-950">
-          {" "}
-          Hangman! <GiHangingSpider className="animate-pulse"></GiHangingSpider>
-          <div className="btn-sm btn px-8 my-4">Start Game!</div>
-        </div>
+        <GameBox/>
         <div className="w-[60%] relative flex size-[45%] lg:w-[80%] justify-center p-2 h-[30%] border bg-black flex-wrap">
           <div className="absolute right-0 flex justify-center items-center -top-6 text-sm text-yellow-500">
             Use This Keyboard!{" "}
@@ -241,27 +233,6 @@ const GameSection = () => {
             <GiPanda className="text-2xl animate-bounce"></GiPanda>
           </div>
         </div>
-        {/* <div>{wordToGuess}</div> */}
-        {/* <div className="card w-full bg-base-100 shadow-xl mt-20">
-          <div className="card-body items-center text-center ">
-            <div>
-              <h2 className="card-title text-primary text-2xl">Hello</h2>
-              <p className="text-lg"></p>
-            </div>
-            <div className="card-actions mt-4">
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  setWordToGuess(() => {
-                    return words[Math.floor(Math.random() * words.length)];
-                  });
-                }}
-              >
-                Click Me
-              </button>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
