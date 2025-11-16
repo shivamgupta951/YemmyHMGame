@@ -19,11 +19,6 @@ const GameSection = () => {
 
   return (
     <div className="w-full min-h-[950px] border-b-2 border-dashed border-red-400 lg:flex justify-center">
-      {/* 
-        Keyboard ,UI and for 
-        small devices game
-        section!
-      */}
       <div className="hidden lg:flex w-[45%] justify-start pt-20 items-center py-10 flex-col">
         <div className="flex justify-center items-center w-[50%] text-2xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-primary font-bold">
           Game Zone{" "}
@@ -146,7 +141,7 @@ const GameSection = () => {
       <div className="hidden lg:block min-h-[50%] w-[6px] bg-gradient-to-b from-primary via-black to-purple-900 border-dashed mb-[20%] mt-[3%]"></div>
       <div className="pb-20 lg:pb-0 w-[100%] lg:w-[55%] flex bg-gradient-to-tr pt-10 justify-start items-center flex-col from-black via-[#1f0303] to-black space-y-8">
         <GameBox/>
-        <div className="w-[60%] relative flex size-[45%] lg:w-[80%] justify-center p-2 h-[30%] border bg-black flex-wrap">
+        <div className="w-[60%] relative transition-all transform duration-300 ease-in-out hover:shadow-white shadow-md hover:scale-105 flex size-[45%] lg:w-[80%] justify-center p-2 h-[30%] border bg-black flex-wrap">
           <div className="absolute right-0 flex justify-center items-center -top-6 text-sm text-yellow-500">
             Use This Keyboard!{" "}
             <FaKeyboard className="mx-1 text-xl"></FaKeyboard>

@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="pb-10 w-full min-h-[1800px] lg:min-h-[1550px]">
       <div className="flex flex-col w-full lg:flex-row justify-around items-center">
-        <div className="hidden lg:flex rounded-md shadow-lg shadow-orange-400 from-black via-black to-[#320521] w-[50%] mt-14 py-10 bg-gradient-to-br items-center justify-center flex-col pb-16">
+        <div className="hidden lg:flex rounded-full shadow-lg shadow-orange-400 from-black via-black to-[#320521] w-[50%] mt-14 py-10 bg-gradient-to-br items-center justify-center flex-col pb-16">
           <div className="my-6 text-lg font-bold text-purple-800">
             Play For Win , Win To Play!
           </div>
@@ -38,7 +38,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="flex shadow-lg rounded-md shadow-orange-400 from-black via-black to-[#320521] w-[80%] mt-14 p-12 py-20 pt-14 bg-gradient-to-br items-center justify-center flex-col lg:hidden">
+        <div className="flex shadow-lg rounded-full shadow-orange-400 from-black via-black to-[#320521] w-[80%] mt-14 p-12 py-20 pt-14 bg-gradient-to-br items-center justify-center flex-col lg:hidden">
           <div className="my-6 text-lg font-bold text-purple-800">
             Play For Win , Win To Play!
           </div>
