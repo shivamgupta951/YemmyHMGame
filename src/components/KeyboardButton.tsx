@@ -3,6 +3,8 @@ type KeyboardButtonProps = {
   onClick: (letter: string) => void;
   gameStatus: boolean;
   setGameStatus: React.Dispatch<React.SetStateAction<boolean>>;
+  gameOver: boolean;
+  setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const KeyboardButton = ({
@@ -10,6 +12,8 @@ const KeyboardButton = ({
   onClick,
   gameStatus,
   setGameStatus,
+  gameOver,
+  setGameOver
 }: KeyboardButtonProps) => {
   return (
     <button
@@ -23,10 +27,10 @@ const KeyboardButton = ({
     flex justify-center items-center 
     transition-all transform duration-300 
     ease-in-out hover:scale-95 cursor-pointer 
-    ${gameStatus? "":"cursor-not-allowed"}
+    ${gameStatus? "":"cursor-not-allowed opacity-60"} ${gameOver? "opacity-30":""}
   `}
       onClick={() => onClick(letter.toLowerCase())}
-      disabled={!gameStatus}
+      disabled={!gameStatus || gameOver}
     >
       {letter}
     </button>

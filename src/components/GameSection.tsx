@@ -21,6 +21,7 @@ const GameSection = () => {
   }, []);
 
   const [gameStatus, setGameStatus] = useState<boolean>(false);
+  const [gameOver, setGameOver] = useState<boolean>(false);
 
   const [wordToGuess, setWordToGuess] = useState<string>(() => {
     return words[Math.floor(Math.random() * words.length)];
@@ -33,6 +34,11 @@ const GameSection = () => {
   const [wrongLetters, setWrongLetters] = useState<string[]>([]);
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  useEffect(() => {
+    if (wrongLetters.length >= 18) {
+      setGameOver(true);
+    }
+  }, [wrongLetters]);
 
   return (
     <div className="w-full min-h-[950px] border-b-2 border-dashed border-red-400 lg:flex justify-center">
@@ -151,6 +157,8 @@ const GameSection = () => {
           }}
           gameStatus={gameStatus}
           setGameStatus={setGameStatus}
+          gameOver={gameOver}
+          setGameOver={setGameOver}
           wordToGuess={wordToGuess}
           wrongLetters={wrongLetters}
           setWrongLetters={setWrongLetters}
@@ -187,12 +195,14 @@ const GameSection = () => {
               }}
               gameStatus={gameStatus}
               setGameStatus={setGameStatus}
+              gameOver={gameOver}
+              setGameOver={setGameOver}
             />
           ))}
 
           {/* Panda */}
           <div
-            className="
+            className={`
               border 
               w-[18%] h-[50px]
               sm:w-[15%] sm:h-[55px]
@@ -202,7 +212,9 @@ const GameSection = () => {
               flex justify-center items-center 
               transition-all transform duration-300 
               ease-in-out hover:scale-95 cursor-pointer
-            "
+              ${gameOver? "opacity-30":""}
+              ${gameStatus?"":"cursor-not-allowed opacity-60"}
+              `}
           >
             <GiPanda className="text-2xl animate-bounce" />
           </div>
