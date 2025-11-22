@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# YemmyHMGame
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+YemmyHMGame is a web-based Hangman-style game featuring both easy and hard levels. Built primarily with TypeScript, the game offers a fun and engaging word guessing experience for users of all ages.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Classic Hangman gameplay with an intuitive user interface
+- Two difficulty levels: **Easy** and **Hard**
+    - Easy: Simpler word choices and more guesses
+    - Hard: Challenging words and fewer guesses
+- Built using TypeScript (93.8%), JavaScript, CSS, and HTML
 
-## React Compiler
+## Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[Add a link to your live demo here if available!]
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (version 14 or higher recommended)
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+    ```bash
+git clone https://github.com/shivamgupta951/YemmyHMGame.git
+cd YemmyHMGame
+``` 
+2. Install dependencies:
+    ```bash
+npm install
+# or
+yarn install
+``` 
+
+### Running the Game
+
+Start the development server:
+```bash
+npm start
+# or
+yarn start
+```
+Visit [http://localhost:3000](http://localhost:3000) to play the game locally.
+
+### Building for Production
+
+To build the app for production:
+```bash
+npm run build
+# or
+yarn build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Select a difficulty level and start guessing the letters to find the hidden word before your chances run out!
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Contributing
+
+1. Fork this repo
+2. Create a new branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Create a Pull Request
+
+## License
+
+[MIT](LICENSE) © shivamgupta951
+
+## Acknowledgements
+
+Thanks for playing! If you have ideas, suggestions, or bug reports, please open an issue or PR.
