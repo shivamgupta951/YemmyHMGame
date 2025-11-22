@@ -3,7 +3,6 @@ import { GiHangingSpider } from "react-icons/gi";
 import words from "../wordList.json";
 import { useState } from "react";
 import { IoExit } from "react-icons/io5";
-import { useEffect } from "react";
 import { FaSkull } from "react-icons/fa";
 
 type input = {
