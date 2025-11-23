@@ -22,6 +22,7 @@ const GameSection = () => {
 
   const [gameStatus, setGameStatus] = useState<boolean>(false);
   const [gameOver, setGameOver] = useState<boolean>(false);
+  const [winner, setWinner] = useState<boolean>(false);
 
   const [wordToGuess, setWordToGuess] = useState<string>(() => {
     return words[Math.floor(Math.random() * words.length)];
@@ -39,6 +40,11 @@ const GameSection = () => {
       setGameOver(true);
     }
   }, [wrongLetters]);
+  useEffect(() => {
+    if (remainingWord.length == 0) {
+      setWinner(true);
+    }
+  }, [remainingWord]);
 
   return (
     <div className="w-full min-h-[950px] border-b-2 border-dashed border-red-400 lg:flex justify-center">
@@ -61,7 +67,6 @@ const GameSection = () => {
               boxStatus == 0 ? "animate-ping-slow" : ""
             }`}
           >
-            {wrongLetters.length}
           </div>
 
           <div
@@ -162,6 +167,8 @@ const GameSection = () => {
           wordToGuess={wordToGuess}
           wrongLetters={wrongLetters}
           setWrongLetters={setWrongLetters}
+          winner={winner}
+          setWinner={setWinner}
           setWordToGuess={(w) => {
             setWordToGuess(w);
             setRemainingWord(w);
@@ -187,7 +194,7 @@ const GameSection = () => {
                 if (remainingWord.includes(l)) {
                   // correct guess
                   setGuessedLetters((prev) => [...prev, l]);
-                  setRemainingWord((prev) => prev.replace(l, ""));
+                  setRemainingWord((prev) => prev.replaceAll(l, ""));
                 } else {
                   // wrong guess
                   setWrongLetters((prev) => [...prev, l]);
@@ -197,6 +204,8 @@ const GameSection = () => {
               setGameStatus={setGameStatus}
               gameOver={gameOver}
               setGameOver={setGameOver}
+              winner={winner}
+              setWinner={setWinner}
             />
           ))}
 
@@ -212,8 +221,9 @@ const GameSection = () => {
               flex justify-center items-center 
               transition-all transform duration-300 
               ease-in-out hover:scale-95 cursor-pointer
-              ${gameOver? "opacity-30":""}
-              ${gameStatus?"":"cursor-not-allowed opacity-60"}
+              ${gameOver ? "opacity-30" : ""}
+              ${winner ? "opacity-30" : ""}
+              ${gameStatus ? "" : "cursor-not-allowed opacity-60"}
               `}
           >
             <GiPanda className="text-2xl animate-bounce" />

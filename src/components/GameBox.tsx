@@ -4,6 +4,7 @@ import words from "../wordList.json";
 import { useState } from "react";
 import { IoExit } from "react-icons/io5";
 import { FaSkull } from "react-icons/fa";
+import { FaTrophy } from "react-icons/fa";
 
 type input = {
   title: string;
@@ -13,6 +14,8 @@ type input = {
   setGameStatus: React.Dispatch<React.SetStateAction<boolean>>;
   gameOver: boolean;
   setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  winner: boolean;
+  setWinner: React.Dispatch<React.SetStateAction<boolean>>;
   wordToGuess: string;
   setWordToGuess: React.Dispatch<React.SetStateAction<string>>;
   wrongLetters: string[];
@@ -31,6 +34,8 @@ const GameBox: React.FC<input> = ({
   setWrongLetters,
   gameOver,
   setGameOver,
+  winner,
+  setWinner
 }) => {
   const [firstGame, setFirstGame] = useState(true);
   const [prevWord, setPrevWord] = useState("");
@@ -102,6 +107,7 @@ const GameBox: React.FC<input> = ({
               setFirstGame(false);
               const newWord = words[Math.floor(Math.random() * words.length)];
               setWordToGuess(newWord);
+              setWinner(false);
               onExit();
             }}
           >
@@ -115,7 +121,16 @@ const GameBox: React.FC<input> = ({
             </div>
           )}
           {gameOver && (
-            <div className="absolute bg-black w-full h-full top-0 outline outline-black rounded-2xl opacity-55 z-40"></div>
+            <div className="absolute bg-red-400 w-full h-full top-0 outline outline-black rounded-2xl opacity-55 z-40"></div>
+          )}
+          {winner && (
+            <div className="bg-black w-full flex z-50 justify-center items-center p-4 py-8 absolute top-[32%] outline outline-black text-green-600 tracking-tight flex-col">
+              <div className="flex justify-center items-center">Winner <FaTrophy className="mx-2 text-purple-200 animate-pulse text-3xl"></FaTrophy></div>
+              <div className="text-sm text-purple-900 tracking-wider mt-2">({wordToGuess})</div>
+            </div>
+          )}
+          {winner && (
+            <div className="absolute bg-green-400 w-full h-full top-0 outline outline-green-800 rounded-2xl opacity-75 z-40"></div>
           )}
           <div className="-top-1 -left-1 text-[30%] p-2 py-1 px-6 text-purple-400 rounded-xl absolute bg-black">
             chances left : {18-wrongLetters.length}
