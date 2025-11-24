@@ -12,7 +12,7 @@ const GameSection = () => {
   const [boxStatus, setBoxStatus] = useState(() => {
     return Math.floor(Math.random() * 10);
   });
-
+  const [result, setResult] = useState<string>("");
   useEffect(() => {
     const interval = setInterval(() => {
       setBoxStatus(Math.floor(Math.random() * 10));
@@ -38,11 +38,13 @@ const GameSection = () => {
   useEffect(() => {
     if (wrongLetters.length >= 18) {
       setGameOver(true);
+      setResult("Lose");
     }
   }, [wrongLetters]);
   useEffect(() => {
     if (remainingWord.length == 0) {
       setWinner(true);
+      setResult("Win");
     }
   }, [remainingWord]);
 
@@ -169,6 +171,8 @@ const GameSection = () => {
           setWrongLetters={setWrongLetters}
           winner={winner}
           setWinner={setWinner}
+          result={result}
+          setResult={setResult}
           setWordToGuess={(w) => {
             setWordToGuess(w);
             setRemainingWord(w);

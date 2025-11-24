@@ -18,6 +18,8 @@ type input = {
   setWinner: React.Dispatch<React.SetStateAction<boolean>>;
   wordToGuess: string;
   setWordToGuess: React.Dispatch<React.SetStateAction<string>>;
+  result: string;
+  setResult: React.Dispatch<React.SetStateAction<string>>;
   wrongLetters: string[];
   setWrongLetters: React.Dispatch<React.SetStateAction<string[]>>;
 };
@@ -35,11 +37,12 @@ const GameBox: React.FC<input> = ({
   gameOver,
   setGameOver,
   winner,
-  setWinner
+  setWinner,
+  result,
+  setResult,
 }) => {
   const [firstGame, setFirstGame] = useState(true);
   const [prevWord, setPrevWord] = useState("");
-  const [result, setResult] = useState("LOSE");
   return (
     <div
       className={`w-[60%] text-2xl h-[280px] size-[45%] lg:w-[50%] lg:h-[40%] border relative rounded-2xl ${
@@ -116,8 +119,13 @@ const GameBox: React.FC<input> = ({
           </div>
           {gameOver && (
             <div className="bg-black w-full flex z-50 justify-center items-center p-4 py-8 absolute top-[32%] outline outline-black text-red-800 tracking-tight flex-col">
-              <div className="flex justify-center items-center">GameOver <FaSkull className="mx-2 text-red-400 animate-pulse text-3xl"></FaSkull></div>
-              <div className="text-sm text-purple-900 tracking-wider mt-2">({wordToGuess})</div>
+              <div className="flex justify-center items-center">
+                GameOver{" "}
+                <FaSkull className="mx-2 text-red-400 animate-pulse text-3xl"></FaSkull>
+              </div>
+              <div className="text-sm text-purple-900 tracking-wider mt-2">
+                ({wordToGuess})
+              </div>
             </div>
           )}
           {gameOver && (
@@ -125,15 +133,23 @@ const GameBox: React.FC<input> = ({
           )}
           {winner && (
             <div className="bg-black w-full flex z-50 justify-center items-center p-4 py-8 absolute top-[32%] outline outline-black text-green-600 tracking-tight flex-col">
-              <div className="flex justify-center items-center">Winner <FaTrophy className="mx-2 text-purple-200 animate-pulse text-3xl"></FaTrophy></div>
-              <div className="text-sm text-purple-900 tracking-wider mt-2">({wordToGuess})</div>
+              <div className="flex justify-center items-center">
+                Winner{" "}
+                <FaTrophy className="mx-2 text-purple-200 animate-pulse text-3xl"></FaTrophy>
+              </div>
+              <div className="text-sm text-purple-900 tracking-wider mt-2">
+                ({wordToGuess})
+              </div>
+              <div className="absolute text-[35%] bottom-0 right-1 tracking-wider text-yellow-800 bg-black">
+                chances left : {18 - wrongLetters.length}
+              </div>
             </div>
           )}
           {winner && (
             <div className="absolute bg-green-400 w-full h-full top-0 outline outline-green-800 rounded-2xl opacity-75 z-40"></div>
           )}
           <div className="-top-1 -left-1 text-[30%] p-2 py-1 px-6 text-purple-400 rounded-xl absolute bg-black">
-            chances left : {18-wrongLetters.length}
+            chances left : {18 - wrongLetters.length}
           </div>
         </div>
       ) : (
@@ -167,7 +183,7 @@ const GameBox: React.FC<input> = ({
               <div className="text-[50%] text-purple-500 mx-1">{title}</div>
               <div
                 className={`${
-                  result == "WIN" ? "text-green-600" : "text-red-600"
+                  result == "Win" ? "text-green-600" : "text-red-600"
                 } text-sm`}
               >
                 {result}
