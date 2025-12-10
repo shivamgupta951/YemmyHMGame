@@ -40,9 +40,8 @@ const Home = () => {
         </div>
         <div className="flex shadow-lg rounded-full shadow-orange-400 from-black via-black to-[#320521] w-[80%] mt-14 p-12 py-20 pt-14 bg-gradient-to-br items-center justify-center flex-col lg:hidden">
           <div className="my-6 text-lg font-bold text-purple-800">
-            Play For Win , Win To Play!
+            Play For Win , Win To Play! heello
           </div>
-
           <Video />
         </div>
       </div>

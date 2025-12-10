@@ -68,8 +68,7 @@ const GameSection = () => {
             className={`border size-[30%] flex justify-center items-center text-black rounded-md bg-[#decdcd] mt-2 ${
               boxStatus == 0 ? "animate-ping-slow" : ""
             }`}
-          >
-          </div>
+          ></div>
 
           <div
             className={`border size-[30%] flex justify-center items-center text-black rounded-md bg-[#decdcd] mt-2 ${
